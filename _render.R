@@ -20,7 +20,7 @@ message(">> Building Books:")
 for (fmt in formats) {
 	  message("  -- Building format: ", fmt)
   # change output_dir for bs4_book as we don't want to publish it
-  output_dir = if (fmt == 'bookdown::bs4_book') "'_book'" else "NULL"
+  output_dir = if (fmt == 'bookdown::bs4_book') "'docs'" else "NULL"
     cmd = sprintf("bookdown::render_book('index.Rmd', '%s', quiet = %s, output_dir = %s)", fmt, quiet, output_dir)
     res = xfun::Rscript(c('-e', shQuote(cmd)))
       if (res != 0) stop('Failed to compile the book to ', fmt)
