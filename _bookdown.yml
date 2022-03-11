@@ -1,0 +1,8 @@
+book_filename: "hds_wiki"
+new_session: false
+before_chapter_script: _common.R
+delete_merged_file: true
+rmd_subdir: yes
+language:
+  ui:
+    chapter_name: ""

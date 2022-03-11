@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Setting up Res-Srv-Lin-01 | Health Data Science Wiki</title>
+<meta name="author" content="HDS">
+<meta name="description" content="Initial setup First, update the package sources and upgrade the installed packages to the latest version: sudo apt update &amp;&amp; sudo apt upgrade -yy Install packages needed later in the setup. sudo...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Setting up Res-Srv-Lin-01 | Health Data Science Wiki">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Initial setup First, update the package sources and upgrade the installed packages to the latest version: sudo apt update &amp;&amp; sudo apt upgrade -yy Install packages needed later in the setup. sudo...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Setting up Res-Srv-Lin-01 | Health Data Science Wiki">
+<meta name="twitter:description" content="Initial setup First, update the package sources and upgrade the installed packages to the latest version: sudo apt update &amp;&amp; sudo apt upgrade -yy Install packages needed later in the setup. sudo...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.13/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Health Data Science Wiki</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="active" href="setting-up-res-srv-lin-01.html">Setting up Res-Srv-Lin-01</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="setting-up-res-srv-lin-01" class="section level1 unnumbered" number="">
+<h1>Setting up Res-Srv-Lin-01<a class="anchor" aria-label="anchor" href="#setting-up-res-srv-lin-01"><i class="fas fa-link"></i></a>
+</h1>
+<div id="initial-setup" class="section level2 unnumbered" number="">
+<h2>Initial setup<a class="anchor" aria-label="anchor" href="#initial-setup"><i class="fas fa-link"></i></a>
+</h2>
+<p>First, update the package sources and upgrade the installed packages to the
+latest version:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="setting-up-res-srv-lin-01.html#cb1-1" aria-hidden="true"></a><span class="fu">sudo</span> apt update <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt upgrade -yy</span></code></pre></div>
+<p>Install packages needed later in the setup.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="setting-up-res-srv-lin-01.html#cb2-1" aria-hidden="true"></a><span class="fu">sudo</span> apt install build-essential git wget tasksel</span></code></pre></div>
+<p>We are currently using the <code>Gnome</code> desktop. For a minimal installation run</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="setting-up-res-srv-lin-01.html#cb3-1" aria-hidden="true"></a><span class="fu">sudo</span> tasksel install ubuntu-desktop-minimal</span></code></pre></div>
+<p>At this moment, it is good to <strong>reboot</strong> to allow our changes to take effect.</p>
+<p>We want to use the MAC address for DHCP identification. To do that, add the
+following to every NIC in <code>/etc/netplan/&lt;...&gt;.yaml</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="setting-up-res-srv-lin-01.html#cb4-1" aria-hidden="true"></a><span class="fu">dhcp-identifier</span><span class="kw">:</span><span class="at"> mac</span></span>
+<span id="cb4-2"><a href="setting-up-res-srv-lin-01.html#cb4-2" aria-hidden="true"></a><span class="fu">optional</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div>
+<p>To prevent automatic updates open <code>Software &amp; Updates &gt; Updates</code> and set</p>
+<pre><code>Subscribed to: All updates
+Automatically check for updates: Never
+When there are security updates: Display immediately
+When there are other updates: Display weekly
+Notify me of a new Ubuntu version: For long-term support versions</code></pre>
+</div>
+<div id="home-setup" class="section level2 unnumbered" number="">
+<h2>Home setup<a class="anchor" aria-label="anchor" href="#home-setup"><i class="fas fa-link"></i></a>
+</h2>
+<p>Many of the key programs will be installed using the <code>snap</code> packaging format.
+The snap daemon requires the user’s <code>$HOME</code> to be located under <code>/home</code> on the
+local filesystem (see more
+<a href="https://snapcraft.io/docs/home-outside-home">here</a>). To do that we need to
+bind-mount the alternative home location to <code>/home</code> (in this setup users’ home
+directories are located in the external storage mounted on <code>/data</code>). Create the
+mount point</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="setting-up-res-srv-lin-01.html#cb6-1" aria-hidden="true"></a><span class="fu">sudo</span> mkdir /data</span></code></pre></div>
+<p>Mount the external storage on <code>/data</code> and bind-mount the actual <code>/data/home</code>
+directory on <code>/home</code>. To make sure these changes are permanent add the following
+to <code>/etc/fstab</code>:</p>
+<pre><code>UUID=&lt;replace-with-disk-uuid&gt; /data ext4 defaults 0 1
+/data/home /home none bind</code></pre>
+<p>It would be good at this point to <strong>reboot</strong> the system. Add any new users with</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="setting-up-res-srv-lin-01.html#cb8-1" aria-hidden="true"></a><span class="fu">sudo</span> useradd -m <span class="op">&lt;</span>replace-with-username<span class="op">&gt;</span> -s /bin/bash</span></code></pre></div>
+<p>This creates a new user, whose <code>$HOME</code> is located on the external storage and their
+default shell is <code>bash</code>.</p>
+</div>
+<div id="python" class="section level2 unnumbered" number="">
+<h2>Python<a class="anchor" aria-label="anchor" href="#python"><i class="fas fa-link"></i></a>
+</h2>
+<p>To setup <code>Python</code> install the following packages</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="setting-up-res-srv-lin-01.html#cb9-1" aria-hidden="true"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb9-2"><a href="setting-up-res-srv-lin-01.html#cb9-2" aria-hidden="true"></a><span class="fu">sudo</span> apt install ipython3 python3-pip <span class="kw">\</span></span>
+<span id="cb9-3"><a href="setting-up-res-srv-lin-01.html#cb9-3" aria-hidden="true"></a>  <span class="ex">python3-dev</span> python3-tk python3-venv</span></code></pre></div>
+</div>
+<div id="r-and-rstudio" class="section level2 unnumbered" number="">
+<h2>R and RStudio<a class="anchor" aria-label="anchor" href="#r-and-rstudio"><i class="fas fa-link"></i></a>
+</h2>
+<p>To install <code>R</code> just follow the
+<a href="https://cran.r-project.org/bin/linux/ubuntu/fullREADME.html">instructions</a>.</p>
+<p>To install <code>RStudio</code>, first download the <code>deb</code> package from their
+<a href="https://www.rstudio.com/products/rstudio/download/#download">website</a>. Navigate
+to the download location and run</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="setting-up-res-srv-lin-01.html#cb10-1" aria-hidden="true"></a><span class="co"># Need to navigate to download location!</span></span>
+<span id="cb10-2"><a href="setting-up-res-srv-lin-01.html#cb10-2" aria-hidden="true"></a><span class="fu">sudo</span> apt install ./rstudio-<span class="op">&lt;</span>replace-with-version<span class="op">&gt;</span>.deb</span></code></pre></div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="index.html">Welcome</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#setting-up-res-srv-lin-01">Setting up Res-Srv-Lin-01</a></li>
+<li><a class="nav-link" href="#initial-setup">Initial setup</a></li>
+<li><a class="nav-link" href="#home-setup">Home setup</a></li>
+<li><a class="nav-link" href="#python">Python</a></li>
+<li><a class="nav-link" href="#r-and-rstudio">R and RStudio</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Health Data Science Wiki</strong>" was written by HDS. It was last built on 2022-03-11.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

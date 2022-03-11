@@ -1,0 +1,99 @@
+# Setting up Res-Srv-Lin-01 {-}
+
+## Initial setup {-}
+
+First, update the package sources and upgrade the installed packages to the
+latest version:
+
+
+```{bash, eval=FALSE}
+sudo apt update && sudo apt upgrade -yy
+```
+
+Install packages needed later in the setup.
+
+```{bash, eval=FALSE}
+sudo apt install build-essential git wget tasksel
+```
+
+We are currently using the `Gnome` desktop. For a minimal installation run
+
+```{bash, eval=FALSE}
+sudo tasksel install ubuntu-desktop-minimal
+```
+
+At this moment, it is good to **reboot** to allow our changes to take effect.
+
+We want to use the MAC address for DHCP identification. To do that, add the
+following to every NIC in `/etc/netplan/<...>.yaml`
+```{yaml, eval=FALSE}
+dhcp-identifier: mac
+optional: true
+```
+
+To prevent automatic updates open `Software & Updates > Updates` and set
+```
+Subscribed to: All updates
+Automatically check for updates: Never
+When there are security updates: Display immediately
+When there are other updates: Display weekly
+Notify me of a new Ubuntu version: For long-term support versions
+```
+
+## Home setup {-}
+
+Many of the key programs will be installed using the `snap` packaging format.
+The snap daemon requires the user's `$HOME` to be located under `/home` on the
+local filesystem (see more
+[here](https://snapcraft.io/docs/home-outside-home)). To do that we need to
+bind-mount the alternative home location to `/home` (in this setup users' home
+directories are located in the external storage mounted on `/data`). Create the
+mount point
+
+```{bash, eval=FALSE}
+sudo mkdir /data
+```
+
+Mount the external storage on `/data` and bind-mount the actual `/data/home`
+directory on `/home`. To make sure these changes are permanent add the following
+to `/etc/fstab`:
+
+```
+UUID=<replace-with-disk-uuid> /data ext4 defaults 0 1
+/data/home /home none bind
+```
+
+It would be good at this point to **reboot** the system. Add any new users with
+
+```{bash, eval=FALSE}
+sudo useradd -m <replace-with-username> -s /bin/bash
+```
+
+This creates a new user, whose `$HOME` is located on the external storage and their
+default shell is `bash`.
+
+## Python {-}
+
+To setup `Python` install the following packages
+
+```{bash, eval=FALSE}
+sudo apt update
+sudo apt install ipython3 python3-pip \
+  python3-dev python3-tk python3-venv
+```
+
+## R and RStudio {-}
+
+To install `R` just follow the
+[instructions](https://cran.r-project.org/bin/linux/ubuntu/fullREADME.html).
+
+To install `RStudio`, first download the `deb` package from their
+[website](https://www.rstudio.com/products/rstudio/download/#download). Navigate
+to the download location and run
+
+```{bash, eval=FALSE}
+# Need to navigate to download location!
+sudo apt install ./rstudio-<replace-with-version>.deb
+```
+
+
