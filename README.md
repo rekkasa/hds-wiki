@@ -13,7 +13,7 @@ make wiki
 This will output a new _html_ file in the local `docs` directory. 
 
 > **IMPORTANT**: Before committing your changes, make sure you include the
-> created file in `_bookdown.yml`, so that it appears in the appropriate order
+> created file in `_bookdown.yml`, under *rmd_files* so that it appears in the appropriate order
 > in the table of contents.
 
 Push your
