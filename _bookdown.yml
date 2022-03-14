@@ -6,3 +6,7 @@ rmd_subdir: yes
 language:
   ui:
     chapter_name: ""
+rmd_files:
+  - "index.Rmd"
+  - "res-serv-lin-01.Rmd"
+  - "wiki/test.Rmd"

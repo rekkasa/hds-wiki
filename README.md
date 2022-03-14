@@ -4,7 +4,7 @@
 
 To add a new wiki page add a `file-name.Rmd` in `wiki` directory and simply
 write your instructions using _RMarkdown_. No need to add a `yaml`
-section`. Once you believe your wiki is ready to be published, run locally
+section. Once you believe your wiki is ready to be published, run locally
 
 ```{bash}
 make wiki
