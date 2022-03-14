@@ -1,3 +1,45 @@
+--- 
+title: "Health Data Science Wiki"
+author: HDS
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+# url: your book url like https://bookdown.org/yihui/bookdown
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+  This is a minimal example of using the bookdown package to write a book.
+  The HTML output format for this example is bookdown::bs4_book,
+  set in the _output.yml file.
+biblio-style: apalike
+csl: chicago-fullnote-bibliography.csl
+---
+```{r include=FALSE, cache=FALSE}
+# example R options set globally
+options(width = 60)
+
+# example chunk options set globally
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE
+  )
+```
+
+# Welcome {-}
+
+This is the `Health Data Science` wiki page.
+
+<!--chapter:end:index.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# example R options set globally
+options(width = 60)
+
+# example chunk options set globally
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE
+  )
+```
 # Setting up Res-Srv-Lin-01 {-}
 
 ## Initial setup {-}
@@ -40,7 +82,7 @@ When there are other updates: Display weekly
 Notify me of a new Ubuntu version: For long-term support versions
 ```
 
-## Home setup {-}
+## Home setup 
 
 Many of the key programs will be installed using the `snap` packaging format.
 The snap daemon requires the user's `$HOME` to be located under `/home` on the
@@ -65,7 +107,7 @@ UUID=<replace-with-disk-uuid> /data ext4 defaults 0 1
 
 It would be good at this point to **reboot** the system. 
 
-## Add users {-}
+## Add users 
 
 Add any new users with
 
@@ -78,7 +120,7 @@ default shell is `bash`.
 
 > **ATTENTION:** This needs be done AFTER bind-mounting the home directory!
 
-## Python {-}
+## Python
 
 To setup `Python` install the following packages
 
@@ -131,3 +173,6 @@ sudo snap install pycharm-educational --classic
 sudo snap install atom --classic
 sudo snap install chromium
 ```
+
+<!--chapter:end:wiki/res-serv-lin-01.Rmd-->
+

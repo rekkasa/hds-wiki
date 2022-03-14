@@ -89,10 +89,18 @@ directory on <code>/home</code>. To make sure these changes are permanent add th
 to <code>/etc/fstab</code>:</p>
 <pre><code>UUID=&lt;replace-with-disk-uuid&gt; /data ext4 defaults 0 1
 /data/home /home none bind</code></pre>
-<p>It would be good at this point to <strong>reboot</strong> the system. Add any new users with</p>
+<p>It would be good at this point to <strong>reboot</strong> the system.</p>
+</div>
+<div id="add-users" class="section level2 unnumbered" number="">
+<h2>Add users<a class="anchor" aria-label="anchor" href="#add-users"><i class="fas fa-link"></i></a>
+</h2>
+<p>Add any new users with</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="setting-up-res-srv-lin-01.html#cb8-1" aria-hidden="true"></a><span class="fu">sudo</span> useradd -m <span class="op">&lt;</span>replace-with-username<span class="op">&gt;</span> -s /bin/bash</span></code></pre></div>
 <p>This creates a new user, whose <code>$HOME</code> is located on the external storage and their
 default shell is <code>bash</code>.</p>
+<blockquote>
+<p><strong>ATTENTION:</strong> This needs be done AFTER bind-mounting the home directory!</p>
+</blockquote>
 </div>
 <div id="python" class="section level2 unnumbered" number="">
 <h2>Python<a class="anchor" aria-label="anchor" href="#python"><i class="fas fa-link"></i></a>
@@ -112,6 +120,26 @@ default shell is <code>bash</code>.</p>
 to the download location and run</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="setting-up-res-srv-lin-01.html#cb10-1" aria-hidden="true"></a><span class="co"># Need to navigate to download location!</span></span>
 <span id="cb10-2"><a href="setting-up-res-srv-lin-01.html#cb10-2" aria-hidden="true"></a><span class="fu">sudo</span> apt install ./rstudio-<span class="op">&lt;</span>replace-with-version<span class="op">&gt;</span>.deb</span></code></pre></div>
+<p>The downloaded <code>.deb</code> file can now be removed.</p>
+<p>Point the <code>CRAN</code> mirror to the local IPCI CRAN mirror by changing the repo name
+in <code>/etc/R/Rprofile.site</code> to <code>http://Shr/SRV-CRAN/CRAN</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/eval.html">local</a></span><span class="op">(</span><span class="op">{</span>
+    <span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span>
+    <span class="va">r</span><span class="op">[</span><span class="st">"CRAN"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"http://Shr/SRV-CRAN/CRAN"</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>repos <span class="op">=</span> <span class="va">r</span><span class="op">)</span>
+<span class="op">}</span><span class="op">)</span></code></pre></div>
+<p>For cryptography install <code>libsodium-dev</code> package:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="setting-up-res-srv-lin-01.html#cb12-1" aria-hidden="true"></a><span class="fu">sudo</span> apt upate <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt install libsodium-dev</span></code></pre></div>
+</div>
+<div id="program-installation" class="section level2 unnumbered" number="">
+<h2>Program installation<a class="anchor" aria-label="anchor" href="#program-installation"><i class="fas fa-link"></i></a>
+</h2>
+<p>Install <em>Pycharm</em>, <em>Atom</em>, and <em>Chromium</em> using snaps. The snap package manager
+is installed on Ubuntu by default, so no need to install it.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="setting-up-res-srv-lin-01.html#cb13-1" aria-hidden="true"></a><span class="fu">sudo</span> snap install pycharm-educational --classic</span>
+<span id="cb13-2"><a href="setting-up-res-srv-lin-01.html#cb13-2" aria-hidden="true"></a><span class="fu">sudo</span> snap install atom --classic</span>
+<span id="cb13-3"><a href="setting-up-res-srv-lin-01.html#cb13-3" aria-hidden="true"></a><span class="fu">sudo</span> snap install chromium</span></code></pre></div>
 
 </div>
 </div>
@@ -124,8 +152,10 @@ to the download location and run</p>
 <li><a class="nav-link" href="#setting-up-res-srv-lin-01">Setting up Res-Srv-Lin-01</a></li>
 <li><a class="nav-link" href="#initial-setup">Initial setup</a></li>
 <li><a class="nav-link" href="#home-setup">Home setup</a></li>
+<li><a class="nav-link" href="#add-users">Add users</a></li>
 <li><a class="nav-link" href="#python">Python</a></li>
 <li><a class="nav-link" href="#r-and-rstudio">R and RStudio</a></li>
+<li><a class="nav-link" href="#program-installation">Program installation</a></li>
 </ul>
 
       <div class="book-extra">
@@ -142,7 +172,7 @@ to the download location and run</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Health Data Science Wiki</strong>" was written by HDS. It was last built on 2022-03-11.</p>
+    <p>"<strong>Health Data Science Wiki</strong>" was written by HDS. It was last built on 2022-03-14.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
